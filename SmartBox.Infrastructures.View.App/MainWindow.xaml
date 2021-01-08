@@ -1,0 +1,256 @@
+﻿<pu:WindowX x:Class="SmartBox.Infrastructures.View.App.MainWindow"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+            xmlns:local="clr-namespace:SmartBox.Infrastructures.View.App"
+            mc:Ignorable="d" Icon="Resources\favicon.ico"
+            Title="智行车场盒子"
+            Height="810"
+            Width="1296"
+            WindowStartupLocation="CenterScreen"
+            pu:WindowXCaption.Height="50"
+            pu:WindowXCaption.Background="#FFFFFF"
+            pu:WindowXCaption.Foreground="#0078FF"
+            BorderBrush="#0099FF" Loaded="WindowX_Loaded">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Panuon.UI.Silver;component/Control.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="TextBlock">
+                <Setter Property="TextAlignment" Value="Left"></Setter>
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                <Setter Property="Margin" Value="5,2"></Setter>
+                <Setter Property="FontFamily" Value="微软雅黑"></Setter>
+            </Style>
+            <Style TargetType="pu:WindowX">
+                <Setter Property="FontFamily" Value="微软雅黑"></Setter>
+            </Style>
+        </ResourceDictionary>
+
+    </Window.Resources>
+    <pu:WindowXCaption.Header>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="4*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="4*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Margin="5" Source="Resources/logo.png"></Image>
+            <TextBlock Grid.Column="2" FontSize="22">智行车场盒子JSMC1102</TextBlock>
+            <ComboBox Grid.Column="3" VerticalAlignment="Center"
+                  Margin="5,0" MinHeight="35"
+                  ItemsSource="{Binding Area}"
+                  pu:ComboBoxHelper.Watermark="请选择区域"
+                  pu:ComboBoxHelper.SelectedBackground="#CDDEEF"
+                  pu:ComboBoxHelper.SelectedForeground="#0078FF"
+                  pu:ComboBoxHelper.HoverBackground="#0078FF"
+                  pu:ComboBoxHelper.HoverForeground="#FFFFFF"
+                  pu:ComboBoxHelper.CornerRadius="4"
+                  pu:TextBoxHelper.IsClearButtonVisible="True" />
+
+            <Button Grid.Column="4" pu:ButtonHelper.ButtonStyle="Link" Margin="5" pu:ButtonHelper.ClickStyle="Sink">
+                <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Foreground="#0078FF">车位数</TextBlock>
+                    <TextBlock Foreground="#0078FF">4997/5000</TextBlock>
+                </DockPanel>
+            </Button>
+        </Grid>
+       
+    </pu:WindowXCaption.Header>
+
+    <pu:WindowXCaption.ExtendControl>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button x:Name="btnOnDuty" Grid.Column="0" pu:ButtonHelper.ButtonStyle="Link" Margin="5" 
+                    pu:ButtonHelper.ClickStyle="Sink" ToolTip="当班信息">
+                <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Image Source="Resources/onduty.png"></Image>
+                </DockPanel>
+            </Button>
+
+            <Button x:Name="btnChangeDuty" Grid.Column="1" pu:ButtonHelper.ButtonStyle="Link" Margin="5" 
+                    pu:ButtonHelper.ClickStyle="Sink" ToolTip="上班/下班">
+                <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Image Source="Resources/changeduty.png"></Image>
+                </DockPanel>
+            </Button>
+
+            <Button x:Name="btnToDo" Grid.Column="2" pu:ButtonHelper.ButtonStyle="Link" Margin="5" 
+                    pu:ButtonHelper.ClickStyle="Sink" ToolTip="待办事项" >
+                <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Image Source="Resources/todo.png"></Image>
+                </DockPanel>
+            </Button>
+        </Grid>
+    </pu:WindowXCaption.ExtendControl>
+    
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="17*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*" ></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="#E0EFFF" pu:GridHelper.GridLineBrush="White" pu:GridHelper.GridLineThickness="1" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border>
+                <Image Height="128" Width="128" Source="Resources\video.png"></Image>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="1">
+                <Image Height="128" Width="128" Source="Resources\video.png"></Image>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="0">
+                <Image Height="128" Width="128" Source="Resources\video.png"></Image>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1">
+                <Image Height="128" Width="128" Source="Resources\video.png"></Image>
+            </Border>
+        </Grid>
+
+
+        <TabControl Grid.Row="1" Grid.Column="0"
+        pu:TabControlHelper.SelectedForeground="#0078FF" >
+            <TabItem Header="最近记录">
+                <DataGrid x:Name="dgTables" ItemsSource="{Binding Records}"
+                  BorderBrush="LightGray"
+                  BorderThickness="1"
+                  pu:DataGridHelper.HeaderMinHeight="30"
+                  pu:DataGridHelper.ColumnHorizontalContentAlignment="Left"
+                  pu:DataGridHelper.RowMinHeight="30"
+                  pu:DataGridHelper.SelectedBackground="#0078FF"
+                  pu:DataGridHelper.SelectedForeground="#0078FF"
+                  pu:DataGridHelper.HoverBackground="#0078FF"
+                  CanUserAddRows="False" >
+                    <pu:DataGridHelper.AutoGenerateCheckBoxStyle>
+                        <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                            <Setter Property="IsChecked" Value="{Binding ElementName=cbChooseAll,Path=IsChecked}"></Setter>
+                            <Setter Property="pu:CheckBoxHelper.CheckBoxStyle" Value="Switch" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=(pu:CheckBoxHelper.CheckBoxStyle),
+                            RelativeSource={RelativeSource Self}}" Value="Switch">
+                                    <Setter Property="pu:CheckBoxHelper.CheckedBackground" Value="#00BCFF" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </pu:DataGridHelper.AutoGenerateCheckBoxStyle>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="控制面板">
+            </TabItem>
+        </TabControl>
+
+        <ContentControl Grid.Column="1" Grid.RowSpan="2"  x:Name="confirmCharge"
+                        Margin="5,0" />
+
+        <Grid Grid.Row="3" Background="#0078FF">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Border Margin="0,5" BorderThickness="0,0,1,0" BorderBrush="White" >
+                <Button pu:ButtonHelper.ButtonStyle="Link" pu:ButtonHelper.ClickStyle="Sink">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock FontSize="18" Foreground="White">菜单</TextBlock>
+                        <Image Height="22" Width="22" Source="Resources/menu.png"></Image>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <Border Margin="0,5" Grid.Column="1" BorderThickness="0,0,1,0" BorderBrush="White" >
+                <Button pu:ButtonHelper.ButtonStyle="Link" pu:ButtonHelper.ClickStyle="Sink">
+                    <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock FontSize="18" Foreground="White">可视对讲</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" FontSize="18" Foreground="White">F1</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <Border Margin="0,5" Grid.Column="2" BorderThickness="0,0,1,0" BorderBrush="White" >
+                <Button pu:ButtonHelper.ButtonStyle="Link" pu:ButtonHelper.ClickStyle="Sink">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock FontSize="18" Foreground="White">报表查询</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" FontSize="18" Foreground="White">F2</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <Border Margin="0,5" Grid.Column="3" BorderThickness="0,0,1,0" BorderBrush="White" >
+                <Button pu:ButtonHelper.ButtonStyle="Link" pu:ButtonHelper.ClickStyle="Sink">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock FontSize="18" Foreground="White">凭证查询</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" FontSize="18" Foreground="White">F3</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <Border Margin="0,5" Grid.Column="4" BorderThickness="0,0,1,0" BorderBrush="White" >
+                <Button pu:ButtonHelper.ButtonStyle="Link" pu:ButtonHelper.ClickStyle="Sink">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock FontSize="18" Foreground="White">设备状态</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" FontSize="18" Foreground="White">F4</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <Border  Grid.Column="5">
+                <Button pu:ButtonHelper.ButtonStyle="Link" pu:ButtonHelper.ClickStyle="Sink">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock FontSize="18" Foreground="White">锁屏</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" FontSize="18" Foreground="White">F5</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Border>
+        </Grid>
+        <Grid Background="#0078FF" Grid.Column="1" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1" Background="#0068DD">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="1" Foreground="White">2020-11-21 16:43:16</TextBlock>
+                <Image Grid.Column="2" Source="Resources\display.png"></Image>
+                <Image Grid.Column="3" Source="Resources\online.png"></Image>
+                <TextBlock Grid.Column="4" Foreground="White">V2.7.1</TextBlock>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</pu:WindowX>
